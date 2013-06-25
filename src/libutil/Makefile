@@ -12,6 +12,9 @@ include ../../Makefile.config
 sources = xmem.c \
           xstring.c \
           xfile.c \
+          byteswap.c \
+          endian.c \
+          stai.c \
           test_endian.c
 
 include ../../Makefile.rules

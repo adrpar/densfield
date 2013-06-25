@@ -14,7 +14,10 @@ sources = io_file.c \
           io_mgadget.c \
           io_gadget.c \
           io_logging.c \
-          io_util.c
+          io_util.c \
+          io_artnew.c \
+          art.c \
+          artHeader.c 
 
 include ../../Makefile.rules
 

@@ -14,6 +14,7 @@
 #include "io_gadget.h"
 #include "io_gadget_header.h"
 #include "io_util.h"
+#include "io_logging.h"
 
 
 /*--- Prototypes of local functions -------------------------------------*/

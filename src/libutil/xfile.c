@@ -1,57 +1,34 @@
-/* 
- * Copyright (C) 2009, Steffen Knollmann
- * 
- * This file is part of `mtree2'.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
- */
+// Copyright (C) 2010, 2011, Steffen Knollmann
+// Released under the terms of the GNU General Public License version 3.
+// This file is part of `ginnungagap'.
 
+
+/*--- Doxygen file description ------------------------------------------*/
 
 /**
- * \file  xfile.c
- *
- * This will provide wrapper functions for file routines.
+ * @file libutil/xfile.c
+ * @ingroup libutilCore
+ * @brief This file implements the utility functions dealing with files.
  */
 
 
-/************************************************************************\
- *    Includes                                                          * 
-\************************************************************************/
+/*--- Includes ----------------------------------------------------------*/
+#include "util_config.h"
 #include "xfile.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
+#include <assert.h>
+#if (defined _XOPEN_SOURE && _XOPEN_SOURCE >= 600)
+#  include <unistd.h>
+#  include <sys/types.h>
+#  include <sys/stat.h>
+#  include <fcntl.h>
+#endif
 
 
-/************************************************************************\
- *    Defines                                                           * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Implementations of exported variables                             * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Prototypes of local functions                                     * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Implementations of exported functions                             * 
-\************************************************************************/
+/*--- Implementations of exported functios ------------------------------*/
 extern FILE *
 xfopen(const char *path, const char *mode)
 {
@@ -70,7 +47,7 @@ xfopen(const char *path, const char *mode)
 extern int
 xfclose(FILE **fp)
 {
-	if ( (fp == NULL) || ((*fp) == NULL) )
+	if ((fp == NULL) || ((*fp) == NULL))
 		return 0;
 
 	fclose(*fp);
@@ -110,12 +87,64 @@ xfwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)
 extern int
 xfseek(FILE *stream, long offset, int whence)
 {
-	if (!fseek(stream, offset, whence)) {
-		fprintf(stderr,
-		        "Seeking did not yield in the anticipated result.\n");
+	if (fseek(stream, offset, whence) != 0) {
+		fprintf(stderr, "%s\n", strerror(errno));
 		fprintf(stderr, "Exiting... :-(\n");
 		exit(EXIT_FAILURE);
 	}
 
 	return 0;
+}
+
+extern int
+xfile_createFileWithSize(const char *fname, size_t bytes)
+{
+#if (defined _XOPEN_SOURE && _XOPEN_SOURCE >= 600)
+	int fd;
+	int errnum;
+
+	fd = creat(fname, S_IRWXU | S_IRWXG | S_IRWXO);
+	if (fd == -1) {
+		errnum = errno;
+		fprintf(stderr, "Error in %s:%i %s\n",
+		        __func__, __LINE__, strerror(errnum));
+		exit(EXIT_FAILURE);
+	}
+	errnum = posix_fallocate(fd, (off_t)0, (off_t)bytes);
+	if (errnum != 0) {
+		fprintf(stderr, "Error in %s:%i %i\n",
+		        __func__, __LINE__, errnum);
+		exit(EXIT_FAILURE);
+	}
+	close(fd);
+#else
+	FILE *f;
+	char nullData = 124;
+
+	f = xfopen(fname, "wb");
+
+	for (int i = 0; i < bytes; i++)
+		xfwrite(&nullData, sizeof(char), 1, f);
+
+	xfclose(&f);
+#endif
+
+	return 0;
+} /* file_createWithSize */
+
+extern bool
+xfile_checkIfFileExists(const char *fname)
+{
+	FILE *f;
+	bool fileExists = false;
+
+	assert(fname != NULL);
+
+	f = fopen(fname, "r");
+	if (f != NULL) {
+		fclose(f);
+		fileExists = true;
+	}
+
+	return fileExists ? true : false;
 }

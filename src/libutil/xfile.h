@@ -1,54 +1,29 @@
-/* 
- * Copyright (C) 2009, Steffen Knollmann
- * 
- * This file is part of `mtree2'.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3, or (at your option)
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA. 
- */
-
+// Copyright (C) 2010, 2011, Steffen Knollmann
+// Released under the terms of the GNU General Public License version 3.
+// This file is part of `ginnungagap'.
 
 #ifndef XFILE_H
 #define XFILE_H
 
+
+/*--- Doxygen file description ------------------------------------------*/
+
 /**
- * \file  xfile.h
- *
- * This will provide wrapper functions for the file routines.
+ * @file libutil/xfile.h
+ * @ingroup libutilCore
+ * @brief This file provides the interface to utility functions dealing
+ *        with files.
  */
 
 
-/************************************************************************\
- *    Includes                                                          * 
-\************************************************************************/
+/*--- Includes ----------------------------------------------------------*/
+#include "util_config.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 
-/************************************************************************\
- *    Defines                                                           * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Definitions of exported variables                                 * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Prototypes of exported functions                                  * 
-\************************************************************************/
+/*--- Prototypes of exported functions ----------------------------------*/
 
 /**
  * \brief  A wrapper function for fopen.
@@ -64,6 +39,7 @@
 extern FILE *
 xfopen(const char *path, const char *mode);
 
+
 /**
  * \brief  A wrapper function for fclose.
  *
@@ -71,11 +47,12 @@ xfopen(const char *path, const char *mode);
  * variable holding the stream to NULL.
  *
  * \param  **fp  Pointer to the variable holding the stream;
- * 
+ *
  * \return  This function will always return 0.
  */
 extern int
 xfclose(FILE **fp);
+
 
 /**
  * \brief  A wrapper function for fread that will abort the program, if
@@ -92,6 +69,7 @@ xfclose(FILE **fp);
 extern size_t
 xfread(void *ptr, size_t size, size_t nmemb, FILE *stream);
 
+
 /**
  * \brief  A wrapper function for fwrite that will abort the program if
  *         anything went wrong.
@@ -106,6 +84,7 @@ xfread(void *ptr, size_t size, size_t nmemb, FILE *stream);
 extern size_t
 xfwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 
+
 /**
  * \brief  A wrapper function for fseek that will terminate the program
  *         in the occurrence of errors.
@@ -119,5 +98,27 @@ xfwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 extern int
 xfseek(FILE *stream, long offset, int whence);
 
+/**
+ * \brief  Creates a new file and ensures that it contains bytes number
+ *         of bytes.
+ *
+ * \param  *fname  The name of the file to create.
+ * \param  bytes   The file size in bytes.
+ *
+ * \return  Always returns 0.
+ */
+extern int
+xfile_createFileWithSize(const char *fname, size_t bytes);
 
-#endif /* XFILE_H */
+/**
+ * \brief  Check whether a file exists.
+ *
+ * \param *fname  The name of the file whose existance should be
+ *                checked.
+ *
+ * \returns Returns true if the file exists and false if not.
+ */
+extern bool
+xfile_checkIfFileExists(const char *fname);
+
+#endif

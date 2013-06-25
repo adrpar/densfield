@@ -11,7 +11,7 @@
 #define PACKAGE_VERSION_MAJOR    0
 #define PACKAGE_VERSION_MINOR    3
 #define PACKAGE_VERSION_MICRO    0
-#define PACKAGE_VERSION_REVISION "r13M"
+#define PACKAGE_VERSION_REVISION "\ncommit b1eebfc9ec2cf991bd444cef775c573c7c5ef3b1"
 #define PACKAGE_COPYRIGHT_YEAR   "2009, 2010"
 
 #define PRINT_VERSION_INFO(f)                                         \

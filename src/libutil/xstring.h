@@ -1,32 +1,26 @@
+// Copyright (C) 2010, 2011, Steffen Knollmann
+// Released under the terms of the GNU General Public License version 3.
+// This file is part of `ginnungagap'.
+
 #ifndef XSTRING_H
 #define XSTRING_H
 
+
+/*--- Doxygen file description ------------------------------------------*/
+
 /**
- * \file  xstring.h
- *
- * This will provide useful string handling functions.
+ * @file libutil/xstring.h
+ * @ingroup libutilCore
+ * @brief This file provides utility functions dealing with strings.
  */
 
 
-/************************************************************************\
- *    Includes                                                          * 
-\************************************************************************/
+/*--- Includes ----------------------------------------------------------*/
+#include "util_config.h"
 #include <stdio.h>
 
 
-/************************************************************************\
- *    Defines                                                           * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Definitions of exported variables                                 * 
-\************************************************************************/
-
-
-/************************************************************************\
- *    Prototypes of exported functions                                  * 
-\************************************************************************/
+/*--- Prototypes of exported functions ----------------------------------*/
 
 /**
  * \brief  Clone of the GNU strdup() function
@@ -43,6 +37,7 @@
 extern char *
 xstrdup(const char *s);
 
+
 /**
  * \brief  Clone of the GNU getline() function.
  *
@@ -58,4 +53,24 @@ extern size_t
 xgetline(char **line, size_t *n, FILE *f);
 
 
-#endif /* XSTRING_H */
+/**
+ * \brief  This takes two strings and generates a new one that consists
+ *         of the concatenation of the two.
+ *
+ * \param  *s1  The first string.
+ * \param  *s2  The second string.
+ *
+ * \return  Returns a new string that is equivalent to ("%s%s",s1, s2).
+ *          The user must free the string if now longer needed.
+ */
+extern char *
+xstrmerge(const char *s1, const char *s2);
+
+
+extern char *
+xdirname(const char *path);
+
+extern char *
+xbasename(const char *path);
+
+#endif

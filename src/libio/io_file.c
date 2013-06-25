@@ -8,6 +8,7 @@
 #endif
 #include "io_file.h"
 #include "io_art.h"
+#include "io_artnew.h"
 #include "io_gadget.h"
 #include "io_mgadget.h"
 
@@ -105,6 +106,10 @@ io_file_open(io_logging_t   log,
 		dummy = (io_file_t)io_art_open(log, fname, swapped, mode,
 		                               reader);
 		break;
+    case IO_FILE_ARTNEW:
+            dummy = (io_file_t)io_artnew_open(log, fname, swapped, mode,
+                                              reader);
+            break;
 	case IO_FILE_GADGET:
 		dummy = (io_file_t)io_gadget_open(log, fname, swapped, mode,
 		                                  reader);
@@ -136,6 +141,9 @@ io_file_close(io_logging_t log,
 	switch ((*f)->ftype) {
 	case IO_FILE_ART:
 		io_art_close(log, (io_art_t *)f);
+		break;
+    case IO_FILE_ARTNEW:
+        io_artnew_close(log, (io_artnew_t *)f);
 		break;
 	case IO_FILE_GADGET:
 		io_gadget_close(log, (io_gadget_t *)f);
@@ -170,6 +178,9 @@ io_file_init(io_logging_t log,
 	switch (f->ftype) {
 	case IO_FILE_ART:
 		io_art_init(log, (io_art_t)f);
+		break;
+    case IO_FILE_ARTNEW:
+        io_artnew_init(log, (io_artnew_t)f);
 		break;
 	case IO_FILE_GADGET:
 		io_gadget_init(log, (io_gadget_t)f);
@@ -213,6 +224,11 @@ io_file_readpart(io_logging_t          log,
 		                      pskip_parallel, pread_parallel,
 		                      strg);
 		break;
+    case IO_FILE_ARTNEW:
+        tmp = io_artnew_readpart(log, (io_artnew_t)f,
+                 pskip_parallel, pread_parallel,
+                     strg);
+        break;
 	case IO_FILE_GADGET:
 		tmp = io_gadget_readpart(log, (io_gadget_t)f,
 		                         pskip_parallel, pread_parallel,
@@ -349,6 +365,9 @@ io_file_get(io_logging_t  log,
 	case IO_FILE_ART:
 		return io_art_get(log, (io_art_t)f, what, res);
 
+    case IO_FILE_ARTNEW:
+        return io_artnew_get(log, (io_artnew_t)f, what, res);
+
 	case IO_FILE_GADGET:
 		return io_gadget_get(log, (io_gadget_t)f, what, res);
 
@@ -399,6 +418,9 @@ io_file_log(io_logging_t log,
 	switch (f->ftype) {
 	case IO_FILE_ART:
 		io_art_log(log, (io_art_t)f);
+		break;
+    case IO_FILE_ARTNEW:
+        io_artnew_log(log, (io_artnew_t)f);
 		break;
 	case IO_FILE_GADGET:
 		io_gadget_log(log, (io_gadget_t)f);

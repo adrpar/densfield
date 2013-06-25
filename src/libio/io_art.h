@@ -1,17 +1,21 @@
-// Copyright (C) 2010, Steffen Knollmann
-// Released under the terms of the GNU General Public License version 3.
-
-
 #ifndef IO_ART_H
 #define IO_ART_H
 
+/**
+ * \file io_art.h
+ *
+ * Provides functions for reading and writing ART files.
+ */
 
-/*--- Includes ----------------------------------------------------------*/
+
+/***********************************************************************\
+ *    Includes                                                         * 
+\***********************************************************************/
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
 #ifdef WITH_MPI
-#  include <mpi.h>
+#	include <mpi.h>
 #endif
 
 #include "io_art_header_def.h"
@@ -20,7 +24,14 @@
 #include "io_logging.h"
 
 
-/*--- Prototypes of exported functions ----------------------------------*/
+/***********************************************************************\
+ *    Global defines, structure definitions and typedefs               * 
+\***********************************************************************/
+
+
+/***********************************************************************\
+ *    Prototypes of global functions                                   * 
+\***********************************************************************/
 
 /**
  * \brief Just tries to open a ART file.
@@ -46,12 +57,11 @@
  *         file could not be opened.
  */
 extern io_art_t
-io_art_open(io_logging_t   log,
-            char           *fname,
-            io_file_swap_t swapped,
-            io_file_mode_t mode,
-            uint32_t       reader);
-
+io_art_open(io_logging_t log,
+               char *fname,
+               io_file_swap_t swapped,
+               io_file_mode_t mode,
+               uint32_t reader);
 
 /**
  * \brief This will close and finalize an ART file.
@@ -64,8 +74,7 @@ io_art_open(io_logging_t   log,
  */
 extern void
 io_art_close(io_logging_t log,
-             io_art_t     *f);
-
+                io_art_t *f);
 
 /**
  * \brief Initializes an opened for reading ART file.
@@ -77,10 +86,9 @@ io_art_close(io_logging_t log,
  */
 extern void
 io_art_init(io_logging_t log,
-            io_art_t     f);
+               io_art_t f);
 
-
-/**
+/**                          
  * \brief Reads from an opened ART file all particle information and
  *        converts them to AMIGA units.
  *
@@ -89,7 +97,7 @@ io_art_init(io_logging_t log,
  * pointer to beginning of the particle array, which must be large
  * enough to accomodate all particles (can be check by evaluating the
  * number of particles given in the file header).
- *
+ * 
  * The particle structure can be arbitrarily arranged, the function only
  * needs to know where within in the structure the components of
  * position and momentum and the weight are stored and how large the
@@ -101,21 +109,20 @@ io_art_init(io_logging_t log,
  * \param pskip  Number of particles to skip.
  * \param pread  Number of particles to read.
  * \param strg   The abstract description of the external storage.
- *
+ *                                 
  * \return Returns the number of particles read from the file. If this
  *         is not the number of particles given as the pread parameter,
  *         something went wrong. The calling function hence should check
  *         the return value.
  */
 extern uint64_t
-io_art_readpart(io_logging_t          log,
-                io_art_t              f,
-                uint64_t              pskip,
-                uint64_t              pread,
-                io_file_strg_struct_t strg);
+io_art_readpart(io_logging_t log,
+                   io_art_t f,
+                   uint64_t pskip,
+                   uint64_t pread,
+                   io_file_strg_struct_t strg);
 
-
-/**
+/**                          
  * \brief Reads from an opened ART file all particle information
  *        without converting to AMIGA units.
  *
@@ -126,19 +133,18 @@ io_art_readpart(io_logging_t          log,
  * \param pskip  Number of particles to skip.
  * \param pread  Number of particles to read.
  * \param strg   The abstract description of the external storage.
- *
+ *                                 
  * \return Returns the number of particles read from the file. If this
  *         is not the number of particles given as the pread parameter,
  *         something went wrong. The calling function hence should check
  *         the return value.
  */
 extern uint64_t
-io_art_readpart_raw(io_logging_t          log,
-                    io_art_t              f,
-                    uint64_t              pskip,
-                    uint64_t              pread,
-                    io_file_strg_struct_t strg);
-
+io_art_readpart_raw(io_logging_t log,
+                       io_art_t f,
+                       uint64_t pskip,
+                       uint64_t pread,
+                       io_file_strg_struct_t strg);
 
 /**
  * \brief Writes the particles to a ART binary file
@@ -157,12 +163,11 @@ io_art_readpart_raw(io_logging_t          log,
  *         header.
  */
 extern uint64_t
-io_art_writepart(io_logging_t          log,
-                 io_art_t              f,
-                 uint64_t              pskip,
-                 uint64_t              pwrite,
-                 io_file_strg_struct_t strg);
-
+io_art_writepart(io_logging_t log,
+                    io_art_t f,
+                    uint64_t pskip,
+                    uint64_t pwrite,
+                    io_file_strg_struct_t strg);
 
 /**
  * \brief Writes the particles to a ART binary file in an ordered
@@ -185,13 +190,12 @@ io_art_writepart(io_logging_t          log,
  */
 
 extern uint64_t
-io_art_writepart_ord(io_logging_t          log,
-                     io_art_t              f,
-                     uint64_t              pskip,
-                     uint64_t              pwrite,
-                     void                  *nxt_part,
-                     io_file_strg_struct_t strg);
-
+io_art_writepart_ord(io_logging_t log,
+                        io_art_t f,
+                        uint64_t pskip,
+                        uint64_t pwrite,
+                        void *nxt_part,
+                        io_file_strg_struct_t strg);
 
 /**
  * \brief Generic get-function to retrieve things from the file header.
@@ -204,10 +208,10 @@ io_art_writepart_ord(io_logging_t          log,
  * \return True if the parameter could be read, false if not.
  */
 extern bool
-io_art_get(io_logging_t  log,
-           io_art_t      f,
-           io_file_get_t what,
-           void          *res);
+io_art_get(io_logging_t log,
+              io_art_t f,
+              io_file_get_t what,
+              void *res);
 
 
 /**
@@ -221,7 +225,6 @@ io_art_get(io_logging_t  log,
 extern void
 io_art_log(io_logging_t log, io_art_t f);
 
-
 /**
  * \brief Resets the position and weight scales to given values
  *
@@ -234,10 +237,9 @@ io_art_log(io_logging_t log, io_art_t f);
  */
 extern void
 io_art_resetscale(io_logging_t log,
-                  io_art_t     f,
-                  double       posscale,
-                  double       weightscale);
-
+                     io_art_t f,
+                     double posscale,
+                     double weightscale);
 
 /**
  * \brief Does the scaling of particles.
@@ -257,18 +259,17 @@ io_art_resetscale(io_logging_t log,
  *         exactly particles_read.
  */
 extern uint64_t
-io_art_scale_particles(io_logging_t          log,
-                       double                maxpos[],
-                       double                minpos[],
-                       double                boxsize,
-                       double                expansion,
-                       double                ngridc,
-                       uint64_t              particles_read,
-                       io_file_strg_struct_t strg);
-
+io_art_scale_particles(io_logging_t log,
+                          double maxpos[],
+                          double minpos[],
+                          double boxsize,
+                          double minweight,
+                          double expansion,
+                          double ngridc,
+                          uint64_t particles_read,
+                          io_file_strg_struct_t strg);
 
 #ifdef WITH_MPI
-
 /**
  * \brief Establishes the global min and max values needed for scaling.
  *        Only available when in MPI mode.
@@ -285,15 +286,14 @@ io_art_scale_particles(io_logging_t          log,
  */
 extern void
 io_art_scale_global(io_logging_t log,
-                    MPI_Comm     comm,
-                    double       *maxpos,
-                    double       *minpos,
-                    double       *mmass,
-                    double       *minweight,
-                    double       *maxweight,
-                    double       *sumweight);
-
+                     MPI_Comm comm,
+                     double *maxpos,
+                     double *minpos,
+                     double *mmass,
+                     double *minweight,
+                     double *maxweight,
+                     double *sumweight);
 #endif
 
 
-#endif
+#endif /* IO_ART_H */
