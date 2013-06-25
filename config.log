@@ -1,0 +1,32 @@
+Configuring densfield 0.3.0
+-ne \to generating `Makefile.config'... 
+done
+-ne \to generating `config.h'... 
+done
+
+Summary
+-e \to features in use/code properties:
+		ENABLE_FORTRAN_RECORDS	1
+		NDIM	3
+		MAXBASESIZE	55
+		SPHKERNELSIZESMALL	3
+		SPHKERNELSIZEMEDIUM	7
+		SPHKERNELSIZEBIG	15
+		SPHKERNEL_SUBSAMPLING	8
+-e \to features NOT in use:
+		WITH_OPENMP
+		WITH_MAPPING_SPH
+		WITH_MAPPING_CIC
+		ENABLE_DOUBLE
+		ENABLE_DEBUG
+		GRID_UNDEFINED_VALUE
+-e \to programs and program options:
+-e \t\tCC       = gcc
+-e \t\tCFLAGS   =  -Wall -std=c99
+-e \t\tCPPFLAGS = 
+-e \t\tDEPCC    = gcc
+-e \t\tLD       = ld
+-e \t\tLDFLAGS  = 
+-e \t\tLIBS     =  -lm
+-e \t\tAR       = ar
+-e \t\tMAKE     = make

@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/densfield/!svn/ver/9/trunk/src/libutil
+END
+xstring.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/densfield/!svn/ver/2/trunk/src/libutil/xstring.c
+END
+test_endian.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/2/trunk/src/libutil/test_endian.h
+END
+xstring.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/densfield/!svn/ver/2/trunk/src/libutil/xstring.h
+END
+xmem.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/densfield/!svn/ver/2/trunk/src/libutil/xmem.c
+END
+util_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/2/trunk/src/libutil/util_config.h
+END
+xfile.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/2/trunk/src/libutil/xfile.c
+END
+diediedie.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/densfield/!svn/ver/2/trunk/src/libutil/diediedie.h
+END
+pow.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/densfield/!svn/ver/2/trunk/src/libutil/pow.h
+END
+ndim_array_access.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/densfield/!svn/ver/2/trunk/src/libutil/ndim_array_access.h
+END
+xmem.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/densfield/!svn/ver/2/trunk/src/libutil/xmem.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/densfield/!svn/ver/2/trunk/src/libutil/Makefile
+END
+xfile.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/2/trunk/src/libutil/xfile.h
+END
+test_endian.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/2/trunk/src/libutil/test_endian.c
+END

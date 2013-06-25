@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/densfield/!svn/ver/9/trunk/src/libio
+END
+io_mgadget.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/densfield/!svn/ver/7/trunk/src/libio/io_mgadget.c
+END
+io_gadget_header.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget_header.h
+END
+io_art_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/densfield/!svn/ver/7/trunk/src/libio/io_art_def.h
+END
+io_mgadget.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/densfield/!svn/ver/7/trunk/src/libio/io_mgadget.h
+END
+io_util.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/7/trunk/src/libio/io_util.c
+END
+io_gadget_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget_def.h
+END
+io_file.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/7/trunk/src/libio/io_file.c
+END
+io_art_header_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/densfield/!svn/ver/7/trunk/src/libio/io_art_header_def.h
+END
+io_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/7/trunk/src/libio/io_util.h
+END
+io_file.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/7/trunk/src/libio/io_file.h
+END
+io.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/densfield/!svn/ver/7/trunk/src/libio/io.h
+END
+io_logging.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/densfield/!svn/ver/7/trunk/src/libio/io_logging.c
+END
+io_gadget_header_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget_header_def.h
+END
+io_defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/densfield/!svn/ver/7/trunk/src/libio/io_defs.h
+END
+io_art.c
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/densfield/!svn/ver/7/trunk/src/libio/io_art.c
+END
+io_logging.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/densfield/!svn/ver/7/trunk/src/libio/io_logging.h
+END
+io_gadget.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget.c
+END
+io_mgadget_def.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/densfield/!svn/ver/7/trunk/src/libio/io_mgadget_def.h
+END
+io_art.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/densfield/!svn/ver/7/trunk/src/libio/io_art.h
+END
+io_logging_defs.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/densfield/!svn/ver/7/trunk/src/libio/io_logging_defs.h
+END
+io_art_header.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/7/trunk/src/libio/io_art_header.c
+END
+io_gadget.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget.h
+END
+io_file_aux.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/densfield/!svn/ver/7/trunk/src/libio/io_file_aux.h
+END
+io_gadget_header.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/densfield/!svn/ver/7/trunk/src/libio/io_gadget_header.c
+END
+io_art_header.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/densfield/!svn/ver/7/trunk/src/libio/io_art_header.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/densfield/!svn/ver/7/trunk/src/libio/Makefile
+END

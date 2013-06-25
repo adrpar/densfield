@@ -1,0 +1,9 @@
+* Problem:      Dealing with NaNs (0./0.)
+  Description:  If the field on which the particles are mapped is much
+                finer than the particle resolution, it can happen that
+                some cells do not receive any value.  In that case, the
+                velocity field in that cell becomes undefined and will
+                currently lead to 0./0., i.e. NaN being written as the
+                velocity of that cell.
+  Todo:         a) Catch that situation in grid_divideVariablesByNum()
+                b) Write a user-defined value for undefined cells

@@ -1,0 +1,16 @@
+This is the README file for the `densfield' distribution.
+
+Densfield is a tool to generate density and velocity fields from
+cosmological simulation data.
+
+  Copyright (C) 2009, Steffen Knollmann
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+See the file ./BUILD for building instructions.
+
+Home page: None yet.
+
+Densfield is free software.  See the file COPYING for copying conditions.
