@@ -6,13 +6,13 @@
 #define VERSION_H
 
 #define PACKAGE_NAME             "densfield"
-#define PACKAGE_OWNER            "Steffen Knollmann"
-#define PACKAGE_BUG_EMAIL        "steffen.knollmann@uam.es"
+#define PACKAGE_OWNER            "Steffen Knollmann, Adrian M. Partl"
+#define PACKAGE_BUG_EMAIL        "adrian@partl.net"
 #define PACKAGE_VERSION_MAJOR    0
 #define PACKAGE_VERSION_MINOR    3
-#define PACKAGE_VERSION_MICRO    0
+#define PACKAGE_VERSION_MICRO    5
 #define PACKAGE_VERSION_REVISION "__REVISION__"
-#define PACKAGE_COPYRIGHT_YEAR   "2009, 2010"
+#define PACKAGE_COPYRIGHT_YEAR   "2009 - 2013"
 
 #define PRINT_VERSION_INFO(f)                                         \
     fprintf((f), "This is %s %i.%i.%i   %s\n\n"                       \

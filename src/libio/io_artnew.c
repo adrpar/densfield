@@ -370,14 +370,15 @@ local_handleStrgWeightIdU(io_file_strg_struct_t *s,
 	if (s->weight.val != NULL) {
 		for (uint64_t i = UINT64_C(0); i < pr; i++) {
 			if (s->bytes_float == sizeof(float))
-				*((float *)(s->id.val)) = 1.0f;
+				*((float *)(s->weight.val)) = 1.0f;
 			else
-				*((double *)(s->id.val)) = 1.0;
+				*((double *)(s->weight.val)) = 1.0;
 			s->weight.val = (void *)(((char *)(s->weight.val))
 			                         + s->weight.stride);
 		}
 	}
 	if (s->id.val != NULL) {
+		
 		for (uint64_t i = UINT64_C(0); i < pr; i++) {
 			if (s->bytes_int == sizeof(uint32_t))
 				*((uint32_t *)(s->id.val)) = (uint32_t)(ps + i);

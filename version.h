@@ -6,11 +6,11 @@
 #define VERSION_H
 
 #define PACKAGE_NAME             "densfield"
-#define PACKAGE_OWNER            "Steffen Knollmann"
-#define PACKAGE_BUG_EMAIL        "steffen.knollmann@uam.es"
+#define PACKAGE_OWNER            "Adrian M. Partl"
+#define PACKAGE_BUG_EMAIL        "adrianlpartl.net"
 #define PACKAGE_VERSION_MAJOR    0
 #define PACKAGE_VERSION_MINOR    3
-#define PACKAGE_VERSION_MICRO    0
+#define PACKAGE_VERSION_MICRO    5
 #define PACKAGE_VERSION_REVISION "\ncommit b1eebfc9ec2cf991bd444cef775c573c7c5ef3b1"
 #define PACKAGE_COPYRIGHT_YEAR   "2009, 2010"
 

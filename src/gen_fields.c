@@ -1,4 +1,4 @@
-// Copyright (C) 2010, Steffen Knollmann
+// Copyright (C) 2010, Steffen Knollmann, Adrian M. Partl
 // Released under the terms of the GNU General Public License version 3.
 
 
